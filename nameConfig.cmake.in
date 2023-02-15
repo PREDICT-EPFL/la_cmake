@@ -1,0 +1,10 @@
+@PACKAGE_INIT@
+
+include(CMakeFindDependencyMacro)
+foreach(_dep @_LA_CMAKE_EXPORT_DEPENDENCIES@)
+  find_dependency(${_dep})
+endforeach()
+
+foreach(_target @_LA_CMAKE_EXPORT_TARGETS@)
+  include("${CMAKE_CURRENT_LIST_DIR}/${_target}.cmake")
+endforeach()
